@@ -1,0 +1,13 @@
+#set up the plots of individual mfcc
+
+mfcc_data1= np.swapaxes(mfcc1, 0 ,1)
+cax = ax.imshow(mfcc_data1, interpolation='nearest', cmap=cm.coolwarm, origin='lower')
+mfcc_data2= np.swapaxes(mfcc2, 0 ,1)
+cax = ax.imshow(mfcc_data2, interpolation='nearest', cmap=cm.coolwarm, origin='lower')
+
+# plot together to compare the mfcc of both files with a shared x-axis
+fig = plt.figure()
+ax1 = plt.subplot(211)
+plt.plot(mfcc_data1)
+ax2 = plt.subplot(212, sharex = ax1)
+plt.plot(mfcc_data2)
